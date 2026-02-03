@@ -1,0 +1,12 @@
+name: UHDNOW 域名分流覆写
+desc: v1/global 走 Proxies；smart/smart2 直连 DIRECT
+mode: rule
+
+rules:
+  # v1/global -> Proxies
+  - DOMAIN,v1.uhdnow.com,Proxies
+  - DOMAIN,global.uhdnow.com,Proxies
+
+  # smart/smart2 -> DIRECT
+  - DOMAIN,smart.uhdnow.com,DIRECT
+  - DOMAIN,smart2.uhdnow.com,DIRECT
