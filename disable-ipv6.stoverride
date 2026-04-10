@@ -1,0 +1,6 @@
+name: Disable IPv6
+desc: 强制关闭 IPv6,避免 IPv6 直连绕过代理或 DNS 解析异常
+category: 网络
+
+general:
+  ipv6: false
