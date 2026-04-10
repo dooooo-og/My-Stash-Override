@@ -1,0 +1,17 @@
+name: 国内 DNS 优化
+desc: 使用国内 DoH 修复国内 App CDN 就近解析,解决图片/评论加载慢
+category: 网络
+
+dns:
+  # 引导 DNS:用于解析下面 nameserver 中 DoH 服务器的域名
+  # 只能填 IP;#!replace 表示完全覆盖原配置,不与订阅里的合并
+  default-nameserver: #!replace
+    - 223.5.5.5       # 阿里公共 DNS
+    - 119.29.29.29    # 腾讯 DNSPod
+
+  # 主 DNS:只用国内 DoH,保证国内站点 CDN 就近
+  # 官方建议移动端不超过 2 个,避免并发查询耗电
+  # #!replace 确保机场订阅原有的 nameserver 被完全替换掉,而不是叠加
+  nameserver: #!replace
+    - https://dns.alidns.com/dns-query   # 阿里 DoH
+    - https://doh.pub/dns-query          # 腾讯 DoH
